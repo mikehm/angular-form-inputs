@@ -19,4 +19,9 @@ app.controller("myCtrl", function($scope){
 		console.log($scope.users)
 	};
 
+	$scope.remove = function(index){
+
+		$scope.users.splice(index, 1);
+	}
+
 });

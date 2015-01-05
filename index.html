@@ -14,7 +14,6 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
-
 <script src="app.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myCtrl">
@@ -31,6 +30,7 @@
 			<th>Name</th>
 			<th>Position</th>
 			<th>Age</th>
+			<th>Remove</th>
 		</thead>
 		<tbody>
 			<tr ng-repeat="user in users">
@@ -43,6 +43,7 @@
 				<td>
 					{{user.age}}
 				</td>
+				<td><button ng-click="remove($index)" class="btn btn-danger">Remove</button></td>
 			</tr>
 		</tbody>
 	</table>
