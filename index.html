@@ -19,21 +19,35 @@
 <body ng-app="myApp" ng-controller="myCtrl">
 <div class="container">
 	<h1 class="players text-center">Players Profile</h1>
-	<form class="form">
+	<div class="row">
+	<div class="col-lg-6">
+    	<div class="input-group">
+      		<input type="text" class="form-control" placeholder="Search for..." ng-model="searchTerm">
+      	<span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+	</div>
+	<div class="row">
+		<form class="form">
 		<input type="text" class="input-control" ng-model="user.name" placeholder="Name">
 		<input type="text" class="input-control" ng-model="user.position" placeholder="Position">
 		<input type="text" class="input-control" ng-model="user.age" placeholder="Age">
 		<button type="button" class="btn btn-success bt-lg" ng-click="submit()">Submit</button>
 	</form>
-	<table class="table table-bordered table-striped">
-		<thead>
+	</div>
+	
+	<div class="row">
+		<table class="table table-bordered table-striped text-center">
+		<thead class="text-center">
 			<th>Name</th>
 			<th>Position</th>
 			<th>Age</th>
 			<th>Remove</th>
 		</thead>
 		<tbody>
-			<tr ng-repeat="user in users">
+			<tr ng-repeat="user in users | filter:searchTerm">
 				<td>
 					{{user.name}}
 				</td>
@@ -47,6 +61,8 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
+	
 </div>
 </body>
 </html>
